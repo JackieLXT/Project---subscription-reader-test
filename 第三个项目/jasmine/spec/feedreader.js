@@ -29,7 +29,7 @@ $(function() {
             allFeeds.forEach(function(item){
                 expect(item.url).not.toBeNull();
             });
-        })
+        });
 
         /* TODO:
          * 编写一个测试遍历 allFeeds 对象里面的所有的源来保证有名字字段而且不是空的。
@@ -39,7 +39,7 @@ $(function() {
                expect(item.name).not.toBeNull();
                }); 
          });
-    })
+    });
 
 
     /* TODO: 写一个叫做 "The menu" 的测试用例 */
@@ -69,7 +69,7 @@ $(function() {
             $menuIcon.trigger('click');
             expect($body.hasClass('menu-hidden')).toBeTruthy();
         });
-    }) 
+    }); 
     /* TODO: 13. 写一个叫做 "Initial Entries" 的测试用例 */
 
         /* TODO:
@@ -92,7 +92,7 @@ $(function() {
         afterEach(function(done){
             done();
         },1000);
-    })
+    });
     /* TODO: 写一个叫做 "New Feed Selection" 的测试用例 */
 
         /* TODO:
