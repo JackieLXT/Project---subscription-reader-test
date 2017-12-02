@@ -53,4 +53,4 @@
 20. 当完成所有任务的时候，所有的测试也应该通过。
 21. 写一个 README 文件来详细说明运行应用的步骤。如果你已经添加了额外的测试（来提高测试覆盖率），请提供文档说明这些未来的功能点是什么和你编写的测试在检查什么。
 ## 项目的下载
-项目所需的所有链接都已经链接好，把
+项目所需的所有链接都已经链接好，把Project---subscription-reader-test(https://github.com/JackieLXT/Project---subscription-reader-test)打包下载下俩就行了，点击**index.html**就可以运行了。
