@@ -27,19 +27,19 @@ $(function() {
          */
         it ('url of every feed should not null',function(){
             allFeeds.forEach(function(item){
-                expect(item.url).not.toBeNull();
+                expect(item.url).toBeTruthy();
             });
-        });
+        })
 
         /* TODO:
          * 编写一个测试遍历 allFeeds 对象里面的所有的源来保证有名字字段而且不是空的。
          */
          it("There's a name field and it's not empty",function(){
             allFeeds.forEach(function(item){
-               expect(item.name).not.toBeNull();
+               expect(item.name).toBeTruthy();
                }); 
          });
-    });
+    })
 
 
     /* TODO: 写一个叫做 "The menu" 的测试用例 */
@@ -69,7 +69,7 @@ $(function() {
             $menuIcon.trigger('click');
             expect($body.hasClass('menu-hidden')).toBeTruthy();
         });
-    }); 
+    }) 
     /* TODO: 13. 写一个叫做 "Initial Entries" 的测试用例 */
 
         /* TODO:
@@ -81,18 +81,18 @@ $(function() {
          */
     describe('Initial Entries',function(){
         beforeEach(function(done){
-            setTimeout(function(){
-                done();        
-            },1);    
+            loadFeed(0, function () {
+                done();
+            });        
         });
         it('The normal work',function(done){
-            expect($('.feed.entry').length).not.toBe('0');
+            expect($('.feed .entry').length).not.toBe(0);
             done();
         });
         afterEach(function(done){
             done();
         },1000);
-    });
+    })
     /* TODO: 写一个叫做 "New Feed Selection" 的测试用例 */
 
         /* TODO:
@@ -100,19 +100,18 @@ $(function() {
          * 记住，loadFeed() 函数是异步的。
          */
     describe('New Feed Selection',function(){
-        var feedOld;
+        var feedOld=$('.feed').html();
         beforeEach(function(done){
-            feedOld=$('.feed').html();
-            Timeout=jasmine.DEFAULT_TIMEOUT_INTERVAL;
-            jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000;
-            done();
+            loadFeed(1,function(){
+                loadFeed(0,function(){
+                    done();
+                });
+            });
         });
         it('The content changes when a new source is loaded',function(done){
-            expect($('.feed').html()).not.toBe('feedOld');
+            expect($('.feed').html()).not.toBe(feedOld);
             done();
-        });
-        afterEach(function(){
-            jasmine.DEFAULT_TIMEOUT_INTERVAL =Timeout;
-        });
-    });  
+            });
+    })  
 });
+
