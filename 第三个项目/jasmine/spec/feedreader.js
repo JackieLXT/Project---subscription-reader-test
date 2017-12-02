@@ -81,13 +81,10 @@ $(function() {
          */
     describe('Initial Entries',function(){
         beforeEach(function(done){
-            loadFeed(0, function () {
-                done();
-            });        
+            loadFeed(0, done);        
         });
-        it('The normal work',function(done){
+        it('The normal work',function(){
             expect($('.feed .entry').length).not.toBe(0);
-            done();
         });
         afterEach(function(done){
             done();
@@ -103,14 +100,12 @@ $(function() {
         var feedOld=$('.feed').html();
         beforeEach(function(done){
             loadFeed(1,function(){
-                loadFeed(0,function(){
-                    done();
+                loadFeed(0,done();
                 });
             });
         });
-        it('The content changes when a new source is loaded',function(done){
+        it('The content changes when a new source is loaded',function(){
             expect($('.feed').html()).not.toBe(feedOld);
-            done();
             });
     })  
 });
